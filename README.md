@@ -1,2 +1,2 @@
-# generator-kwyjibo
-Scaffold a new express app using the Kwyjibo framework
+# generator-typescript-app
+Yeoman generator to scaffold a new Typescript app

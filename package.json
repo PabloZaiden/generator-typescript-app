@@ -1,0 +1,25 @@
+{
+  "name": "generator-typescript-app",
+  "version": "0.0.1",
+  "description": "Scaffold a new Typescript app",
+  "author": {
+    "name": "Pablo Zaidenvoren",
+    "email": "pabloz@lagash.com",
+    "url": ""
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "keywords": [
+    "",
+    "yeoman-generator",
+    "typescript",
+    "console"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^0.23.0"
+  },
+  "repository": "https://github.com/pablozaiden/generator-typescript-app",
+  "license": "Apache-2.0"
+}

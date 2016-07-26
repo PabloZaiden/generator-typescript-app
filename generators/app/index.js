@@ -4,9 +4,20 @@ var yeoman = require('yeoman-generator');
 module.exports = yeoman.Base.extend({
   prompting: function () {
     var prompts = [{
-      type: 'input',
-      name: 'projectName',
-      message: 'Project name'
+      type: "input",
+      name: "projectName",
+      message: "Project name (no spaces)",
+      validate: function (title) {
+        if (title.indexOf(" ") > 0) {
+          return "Project name must not have spaces";
+        }
+
+        if (title.trim() === "") {
+          return "Project name must not be empty";
+        }
+
+        return true;
+      }
     }];
 
     return this.prompt(prompts).then(function (props) {
@@ -16,6 +27,11 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
+    this.fs.copy(
+      this.templatePath(".vscode"),
+      this.destinationPath(".vscode")
+    );
+
     this.fs.copyTpl(
       this.templatePath('package.json'),
       this.destinationPath('package.json'),
@@ -27,10 +43,9 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('tsconfig.json')
     );
     
-    this.fs.copyTpl(
+    this.fs.copy(
       this.templatePath('app.ts'),
-      this.destinationPath('app.ts'),
-      this.props
+      this.destinationPath('app.ts')
     );
   },
 

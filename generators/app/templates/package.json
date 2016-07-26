@@ -6,6 +6,7 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "@types/nconf": "0.0.28",
     "nconf": "^0.8.4"
   }
 }
